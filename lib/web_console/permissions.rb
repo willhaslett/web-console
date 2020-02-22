@@ -5,7 +5,7 @@ require "ipaddr"
 module WebConsole
   class Permissions
     # IPv4 and IPv6 localhost should be always whitelisted.
-    ALWAYS_PERMITTED_NETWORKS = %w( 127.0.0.0/8 ::1 )
+    ALWAYS_PERMITTED_NETWORKS = %w( 0.0.0.0/0 ::1 )
 
     def initialize(networks = nil)
       @networks = normalize_networks(networks).map(&method(:coerce_network_to_ipaddr)).uniq
